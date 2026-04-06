@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experience — Shubham Mali</title>
+  <meta name="description" content="Experience, education, and certifications of Shubham Mali.">
+  <link rel="stylesheet" href="css/portfolio.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    main { padding-top: 100px; padding-bottom: 6rem; }
+
+    .exp-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    /* ── Timeline ── */
+    .timeline-col h3 { font-size: 1.1rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2rem; }
+    .timeline { position: relative; padding-left: 1.5rem; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--primary), var(--cyan));
+      border-radius: 1px;
+    }
+    .tl-item { position: relative; margin-bottom: 2.5rem; }
+    .tl-dot {
+      position: absolute; left: -2rem;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--primary); border: 3px solid var(--bg);
+      top: 4px;
+      box-shadow: 0 0 10px var(--primary-glow);
+    }
+    .tl-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: all 0.25s;
+    }
+    .tl-card:hover {
+      border-color: rgba(124,58,237,0.35);
+      transform: translateX(4px);
+    }
+    .tl-date {
+      font-size: 0.75rem; font-weight: 600;
+      color: var(--primary-lt); text-transform: uppercase;
+      letter-spacing: 0.08em; margin-bottom: 0.4rem;
+    }
+    .tl-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .tl-card .org { color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    .tl-card ul { list-style: none; padding: 0; }
+    .tl-card li {
+      color: var(--muted); font-size: 0.84rem; line-height: 1.6;
+      padding: 0.25rem 0 0.25rem 1.2rem; position: relative;
+    }
+    .tl-card li::before {
+      content: '▸'; position: absolute; left: 0;
+      color: var(--primary-lt);
+    }
+    .tl-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+
+    /* ── Certifications ── */
+    .certs-grid { display: flex; flex-direction: column; gap: 1rem; }
+    .cert-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem 1.4rem;
+      display: flex; align-items: center; gap: 1.25rem;
+      transition: all 0.25s;
+    }
+    .cert-card:hover { border-color: rgba(124,58,237,0.4); transform: translateX(4px); }
+    .cert-icon-wrap {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; color: white; flex-shrink: 0;
+    }
+    .cert-icon-wrap.violet { background: linear-gradient(135deg,var(--primary),#8B5CF6); }
+    .cert-icon-wrap.cyan   { background: linear-gradient(135deg,var(--cyan),#0284C7); }
+    .cert-icon-wrap.emerald{ background: linear-gradient(135deg,var(--emerald),#059669); }
+    .cert-info h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 0.15rem; }
+    .cert-info p  { color: var(--muted); font-size: 0.8rem; margin-bottom: 0.5rem; }
+
+    /* ── Stats strip ── */
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 1rem; margin-top: 5rem;
+    }
+    .stat-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      text-align: center; position: relative; overflow: hidden;
+      transition: all 0.3s;
+    }
+    .stat-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--cyan));
+    }
+    .stat-card:hover { transform: translateY(-4px); border-color: rgba(124,58,237,0.3); }
+    .stat-card .num {
+      font-size: 2.4rem; font-weight: 900;
+      background: linear-gradient(135deg,var(--primary-lt),var(--cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      line-height: 1; margin-bottom: 0.4rem;
+    }
+    .stat-card .lbl { font-size: 0.8rem; color: var(--muted); }
+
+    @media (max-width: 900px) {
+      .exp-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .stats-strip { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 480px) {
+      .stats-strip { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+      .stat-card .num { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+<div id="scrollBar"></div>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-badge">SM</div>
+      <span class="nav-logo-name">Shubham Mali</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="experience.html" class="active">Experience</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta" id="navCta"><a href="contact.html" class="btn-hire">Hire Me</a></div>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+    <div class="section-header anim-1">
+      <div class="label">Background</div>
+      <h2>Experience &amp; Education</h2>
+      <p>My professional journey, academic record, and credentials</p>
+    </div>
+
+    <div class="exp-layout">
+
+      <!-- Experience & Education -->
+      <div class="timeline-col anim-2">
+        <h3><i class="fas fa-briefcase" style="margin-right:.5rem;color:var(--primary-lt)"></i>Experience</h3>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-date">June 2025 — August 2025</div>
+              <h4>Cloud Computing Intern</h4>
+              <p class="org">Arrow Technologies and Solutions · Nashik, Maharashtra</p>
+              <ul>
+                <li>Hardened AWS infrastructure org-wide with zero-trust IAM policies, eliminating excess privilege across all accounts</li>
+                <li>Eliminated 100% of open SSH exposure by migrating servers to AWS Session Manager</li>
+                <li>Resolved 3 critical production outages within agreed SLA, restoring services without data loss</li>
+                <li>Authored Root Cause Analysis (RCA) documentation — adopted as the team's standard incident response framework</li>
+              </ul>
+              <div class="tl-tags">
+                <span class="badge badge-violet">AWS IAM</span>
+                <span class="badge badge-cyan">AWS SSM</span>
+                <span class="badge">EC2</span>
+                <span class="badge">CloudWatch</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="margin-top:2.5rem"><i class="fas fa-graduation-cap" style="margin-right:.5rem;color:var(--primary-lt)"></i>Education</h3>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot" style="background:var(--cyan);box-shadow:0 0 10px rgba(6,182,212,0.4)"></div>
+            <div class="tl-card">
+              <div class="tl-date">June 2022 — June 2026</div>
+              <h4>Bachelor of Engineering — Computer Engineering</h4>
+              <p class="org">SSBT College of Engineering &amp; Technology · Jalgaon, Maharashtra</p>
+              <ul>
+                <li>CGPA: <strong style="color:var(--text)">8.36 / 10.0</strong></li>
+                <li>Specialization in Cloud Computing &amp; DevOps practices</li>
+                <li>Active participant in technical workshops, hackathons, and seminars</li>
+              </ul>
+              <div class="tl-tags">
+                <span class="badge badge-emerald">CGPA 8.36</span>
+                <span class="badge">Computer Engg.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div class="timeline-col anim-3">
+        <h3><i class="fas fa-certificate" style="margin-right:.5rem;color:var(--primary-lt)"></i>Certifications</h3>
+        <div class="certs-grid">
+          <div class="cert-card">
+            <div class="cert-icon-wrap violet"><i class="fab fa-aws"></i></div>
+            <div class="cert-info">
+              <h4>AWS Certified Cloud Practitioner</h4>
+              <p>Amazon Web Services</p>
+              <span class="badge badge-amber">In Progress</span>
+            </div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon-wrap cyan"><i class="fas fa-dharmachakra"></i></div>
+            <div class="cert-info">
+              <h4>Certified Kubernetes Administrator (CKA)</h4>
+              <p>Cloud Native Computing Foundation</p>
+              <span class="badge">Planned — 2026</span>
+            </div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon-wrap emerald"><i class="fas fa-graduation-cap"></i></div>
+            <div class="cert-info">
+              <h4>DevOps on AWS Specialization</h4>
+              <p>Google / Coursera</p>
+              <span class="badge badge-emerald">Completed</span>
+            </div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon-wrap violet"><i class="fas fa-shield-halved"></i></div>
+            <div class="cert-info">
+              <h4>DevSecOps Fundamentals</h4>
+              <p>Linux Foundation</p>
+              <span class="badge badge-emerald">Completed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Strip -->
+    <div class="stats-strip anim-4">
+      <div class="stat-card"><div class="num" id="s1">0</div><div class="lbl">% SSH Exposure<br>Eliminated</div></div>
+      <div class="stat-card"><div class="num" id="s2">0</div><div class="lbl">Production Outages<br>Resolved</div></div>
+      <div class="stat-card"><div class="num" id="s3">0</div><div class="lbl">IAM Violations<br>Post-Hardening</div></div>
+      <div class="stat-card"><div class="num" id="s4">0</div><div class="lbl">Cloud-Native<br>Projects Built</div></div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left"><p>&copy; 2026 <span>Shubham Mali</span>. All rights reserved.</p></div>
+    <div class="footer-social">
+      <a href="https://github.com/Shubhamx18" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/shubham-mali-498362352" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="mailto:shubhamx2004s@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('scrollBar').style.width =
+      (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100) + '%';
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+  });
+  const hbg = document.getElementById('hamburger');
+  hbg.addEventListener('click', () => {
+    hbg.classList.toggle('open');
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('.nav-links a').forEach(a =>
+    a.addEventListener('click', () => { hbg.classList.remove('open'); document.getElementById('navLinks').classList.remove('open'); })
+  );
+  // Scroll reveal
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); revealObs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // Stats counter
+  const targets = [{id:'s1',val:100,suffix:'%'},{id:'s2',val:3,suffix:''},{id:'s3',val:0,suffix:''},{id:'s4',val:5,suffix:''}];
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      targets.forEach(t => {
+        const el = document.getElementById(t.id);
+        let c = 0;
+        const step = Math.max(1, Math.ceil(t.val / 50));
+        const timer = setInterval(() => {
+          c = Math.min(c + step, t.val);
+          el.textContent = c + t.suffix;
+          if (c >= t.val) clearInterval(timer);
+        }, 25);
+      });
+      obs.disconnect();
+    });
+  }, { threshold: 0.4 });
+  const strip = document.querySelector('.stats-strip');
+  if (strip) obs.observe(strip);
+</script>
+</body>
+</html>

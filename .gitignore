@@ -1,0 +1,17 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Old build tool
+prepros-6.config
+*.sass-cache/
+
+# Editor
+.vscode/
+.idea/
+
+# Old source folders (not needed for deployment)
+scss/
+fonts/
+lib/

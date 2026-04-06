@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shubham Mali — DevOps &amp; Java Full-Stack Engineer</title>
+  <meta name="description" content="Shubham Mali – DevOps, Cloud & Java Full-Stack Engineer. AWS, Kubernetes, CI/CD, Spring Boot.">
+  <link rel="stylesheet" href="css/portfolio.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      padding: 100px 0 3rem;
+    }
+    .orb-violet { width: 560px; height: 560px; top: -130px; right: -180px; }
+    .orb-cyan   { width: 400px; height: 400px; bottom: -80px; left: -120px; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+      position: relative; z-index: 1;
+    }
+
+    /* ── Left text ── */
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.35);
+      color: #6EE7B7; padding: 0.35rem 0.9rem; border-radius: 50px;
+      font-size: 0.78rem; font-weight: 600; margin-bottom: 1.5rem;
+    }
+    .hero-badge-dot {
+      width: 8px; height: 8px; background: #10B981;
+      border-radius: 50%; animation: blink 1.4s ease-in-out infinite;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5.5vw, 4.5rem);
+      font-weight: 900; letter-spacing: -0.04em;
+      line-height: 1.06; margin-bottom: 1.1rem;
+    }
+
+    .hero-role {
+      font-size: clamp(1rem, 2.2vw, 1.35rem);
+      color: var(--muted); margin-bottom: 1.5rem;
+      font-weight: 400; min-height: 1.8em;
+    }
+    .hero-role .typed { color: var(--primary-lt); font-weight: 600; }
+    #cursor-blink {
+      display: inline-block; width: 2px; height: 1.1em;
+      background: var(--primary-lt); vertical-align: text-bottom;
+      animation: blink 0.9s step-end infinite;
+    }
+
+    .hero-desc {
+      color: var(--muted); line-height: 1.8;
+      margin-bottom: 2rem; max-width: 480px; font-size: 0.96rem;
+    }
+
+    .hero-actions {
+      display: flex; gap: 0.85rem; flex-wrap: wrap; margin-bottom: 2.75rem;
+    }
+
+    /* Stat pills */
+    .hero-stats { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
+    .stat-pill  { display: flex; align-items: center; gap: 0.55rem; }
+    .stat-pill .num {
+      font-size: 1.5rem; font-weight: 900;
+      background: linear-gradient(135deg, var(--primary-lt), var(--cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .stat-pill .lbl { font-size: 0.74rem; color: var(--muted); line-height: 1.35; }
+    .stat-sep  { width: 1px; height: 30px; background: var(--border); }
+
+    /* ── Right terminal ── */
+    .terminal-wrap { animation: floatY 4.5s ease-in-out infinite; }
+    .terminal {
+      background: #0d1117; border-radius: 14px;
+      border: 1px solid rgba(124,58,237,0.22);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.03);
+      overflow: hidden; font-family: 'JetBrains Mono', monospace;
+    }
+    .term-bar {
+      background: #161b22; padding: 0.75rem 1.1rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .td { width: 12px; height: 12px; border-radius: 50%; }
+    .td.r { background: #FF5F57; } .td.y { background: #FFBD2E; } .td.g { background: #28C840; }
+    .term-title { margin-left: auto; font-size: 0.7rem; color: #6e7681; }
+    .term-body { padding: 1.1rem 1.4rem; min-height: 210px; font-size: 0.8rem; line-height: 1.9; }
+    .tl { display: flex; gap: 0.5rem; align-items: baseline; }
+    .tp { color: #10B981; white-space: nowrap; }
+    .tc { color: #A78BFA; }
+    .to { color: #6e7681; padding-left: 1rem; }
+    .tk { color: #79C0FF; } .tv { color: #A5D6FF; }
+    .tok { color: #28C840; } .twarn { color: #FFBD2E; }
+    .tcur { display: inline-block; width: 8px; height: 0.9em; background: #A78BFA; animation: blink 1s step-end infinite; vertical-align: text-bottom; }
+
+    /* ── Social strip ── */
+    .hero-social {
+      display: flex; gap: 0.75rem; align-items: center; margin-bottom: 2.25rem;
+    }
+    .hero-social a {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      padding: 0.5rem 1rem; border-radius: 9px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted); text-decoration: none;
+      font-size: 0.8rem; font-weight: 600;
+      transition: all 0.22s;
+    }
+    .hero-social a:hover {
+      border-color: rgba(139,92,246,0.5);
+      color: var(--primary-lt);
+      background: rgba(109,40,217,0.1);
+      transform: translateY(-2px);
+    }
+    .hero-social a i { font-size: 1rem; }
+    .hero-social .sep {
+      width: 1px; height: 20px; background: rgba(255,255,255,0.1);
+    }
+    .scroll-hint {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.45rem;
+      color: var(--subtle); font-size: 0.72rem;
+    }
+    .scroll-hint .arrow {
+      width: 18px; height: 18px;
+      border-right: 2px solid var(--subtle); border-bottom: 2px solid var(--subtle);
+      transform: rotate(45deg); animation: floatY 1.6s ease-in-out infinite;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero { padding-top: 90px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 0; }
+      .terminal-wrap { display: none; }
+      .hero-desc { max-width: 100%; }
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: clamp(2rem, 9vw, 2.8rem); }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { justify-content: center; }
+      .hero-stats { gap: 1rem; }
+      .stat-sep  { display: none; }
+      .scroll-hint { display: none; }
+    }
+  </style>
+</head>
+<body>
+<div id="scrollBar"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-badge">SM</div>
+      <span class="nav-logo-name">Shubham Mali</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn-hire">Hire Me</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero dot-grid">
+  <div class="orb orb-violet"></div>
+  <div class="orb orb-cyan"></div>
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- Left: Text -->
+      <div class="hero-left">
+        <div class="hero-badge anim-1">
+          <div class="hero-badge-dot"></div>
+          Open to Full-Time Roles · June 2026
+        </div>
+
+        <h1 class="anim-2">
+          <span class="grad-text">Shubham</span><br>Mali.
+        </h1>
+
+        <p class="hero-role anim-3">
+          I build <span class="typed" id="typeRole"></span><span id="cursor-blink"></span>
+        </p>
+
+        <p class="hero-desc anim-4">
+          DevOps, Cloud &amp; Java Full-Stack Engineer graduating June 2026.
+          Hands-on AWS production experience — zero-trust IAM, Kubernetes orchestration,
+          CI/CD automation, and full-stack Java development.
+        </p>
+
+        <div class="hero-actions anim-5">
+          <a href="projects.html" class="btn btn-primary">
+            <i class="fas fa-folder-open"></i> View Projects
+          </a>
+          <a href="contact.html" class="btn btn-ghost">
+            <i class="fas fa-paper-plane"></i> Get In Touch
+          </a>
+          <a href="assets/Shubham_Mali_Resume.pdf" class="btn btn-ghost" download>
+            <i class="fas fa-download"></i> Resume
+          </a>
+        </div>
+
+        <!-- Social links -->
+        <div class="hero-social anim-5">
+          <a href="https://github.com/Shubhamx18" target="_blank">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+          <div class="sep"></div>
+          <a href="https://www.linkedin.com/in/shubham-mali-498362352" target="_blank">
+            <i class="fab fa-linkedin-in"></i> LinkedIn
+          </a>
+        </div>
+
+        <div class="hero-stats anim-5">
+          <div class="stat-pill">
+            <span class="num">3</span>
+            <span class="lbl">Production<br>Outages Resolved</span>
+          </div>
+          <div class="stat-sep"></div>
+          <div class="stat-pill">
+            <span class="num">100%</span>
+            <span class="lbl">SSH Exposure<br>Eliminated</span>
+          </div>
+          <div class="stat-sep"></div>
+          <div class="stat-pill">
+            <span class="num">8.36</span>
+            <span class="lbl">CGPA<br>/ 10.0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Terminal -->
+      <div class="terminal-wrap anim-3">
+        <div class="terminal">
+          <div class="term-bar">
+            <div class="td r"></div><div class="td y"></div><div class="td g"></div>
+            <span class="term-title">shubham@devops ~ zsh</span>
+          </div>
+          <div class="term-body">
+            <div class="tl">
+              <span class="tp">shubham@aws:~$</span>
+              <span class="tc" id="tCmd"></span>
+              <span class="tcur" id="tCursor"></span>
+            </div>
+            <div id="tOut"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>scroll</span><div class="arrow"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <p>&copy; 2026 <span>Shubham Mali</span>. Built with passion.</p>
+    </div>
+    <div class="footer-social">
+      <a href="https://github.com/Shubhamx18" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/shubham-mali-498362352" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="mailto:shubhamx2004s@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll progress + nav shrink
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+    document.getElementById('scrollBar').style.width = pct + '%';
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Hamburger
+  const hbg = document.getElementById('hamburger');
+  hbg.addEventListener('click', () => {
+    hbg.classList.toggle('open');
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  // Close on link click (mobile)
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      hbg.classList.remove('open');
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+
+  // Typewriter — roles
+  const roles = [
+    'Scalable Infrastructure.',
+    'CI/CD Pipelines.',
+    'Java Full-Stack Apps.',
+    'Cloud-Native Systems.',
+    'DevSecOps Solutions.',
+    'Kubernetes Platforms.',
+  ];
+  let ri = 0, ci = 0, del = false;
+  function typeRole() {
+    const el = document.getElementById('typeRole');
+    const r = roles[ri];
+    el.textContent = del ? r.slice(0, ci - 1) : r.slice(0, ci + 1);
+    del ? ci-- : ci++;
+    if (!del && ci === r.length) { del = true; setTimeout(typeRole, 1800); return; }
+    if (del && ci === 0) { del = false; ri = (ri + 1) % roles.length; }
+    setTimeout(typeRole, del ? 42 : 88);
+  }
+  typeRole();
+
+  // Terminal sequences
+  const seqs = [
+    {
+      cmd: 'kubectl get pods -n luminary',
+      out: [
+        '<span class="tk">NAME</span>                  <span class="tk">STATUS</span>   <span class="tk">READY</span>',
+        'backend-7d9f8c-x2p   <span class="tok">Running</span>  2/2',
+        'frontend-5b6d4f-m9k  <span class="tok">Running</span>  1/1',
+        'postgres-0            <span class="tok">Running</span>  1/1',
+      ]
+    },
+    {
+      cmd: 'aws iam simulate-principal-policy',
+      out: [
+        '{ <span class="tk">"EvalDecision"</span>: <span class="tok">"allowed"</span>,',
+        '  <span class="tk">"ZeroTrust"</span>:    <span class="tok">"enforced"</span>,',
+        '  <span class="tk">"OpenSSH"</span>:     <span class="twarn">0 instances</span> }',
+      ]
+    },
+    {
+      cmd: 'mvn spring-boot:run',
+      out: [
+        '<span class="twarn">  .   ____          _            __ _ _</span>',
+        '<span class="tok"> :: Spring Boot ::  (v3.2.0)</span>',
+        'Started AppApplication in <span class="tok">1.847s</span>',
+        'Listening on port <span class="tk">8080</span>',
+      ]
+    },
+    {
+      cmd: 'terraform apply -auto-approve',
+      out: [
+        'aws_s3_bucket.main:     <span class="tok">created</span>',
+        'aws_cloudfront.cdn:     <span class="tok">created</span>',
+        '<span class="tok">Apply complete! 6 added, 0 changed.</span>',
+      ]
+    },
+  ];
+  let si = 0;
+  function runTerm() {
+    const s = seqs[si % seqs.length];
+    const cmd = document.getElementById('tCmd');
+    const out = document.getElementById('tOut');
+    const cur = document.getElementById('tCursor');
+    cmd.textContent = ''; out.innerHTML = ''; cur.style.display = 'inline-block';
+    let i = 0;
+    const t = setInterval(() => {
+      cmd.textContent += s.cmd[i++];
+      if (i >= s.cmd.length) {
+        clearInterval(t); cur.style.display = 'none';
+        setTimeout(() => {
+          s.out.forEach((l, li) => setTimeout(() => {
+            const d = document.createElement('div');
+            d.className = 'tl to'; d.innerHTML = l; out.appendChild(d);
+          }, li * 160));
+          setTimeout(() => { si++; runTerm(); }, s.out.length * 160 + 2600);
+        }, 350);
+      }
+    }, 50);
+  }
+  setTimeout(runTerm, 700);
+</script>
+</body>
+</html>
